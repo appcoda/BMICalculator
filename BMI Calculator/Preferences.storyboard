@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="JFV-FD-tKP">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="5pN-LG-J5a">
+            <objects>
+                <windowController id="JFV-FD-tKP" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="UP4-qO-qBx">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <rect key="contentRect" x="245" y="301" width="250" height="200"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="250" height="200"/>
+                        <value key="maxSize" type="size" width="250" height="200"/>
+                        <connections>
+                            <outlet property="delegate" destination="JFV-FD-tKP" id="VBh-gA-vbU"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="2mq-QZ-mwr" kind="relationship" relationship="window.shadowedContentViewController" id="xHf-z3-Lcg"/>
+                    </connections>
+                </windowController>
+                <customObject id="jtL-m6-mIu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="-32"/>
+        </scene>
+        <!--Preferences View Controller-->
+        <scene sceneID="vI9-4Y-luE">
+            <objects>
+                <viewController id="2mq-QZ-mwr" customClass="PreferencesViewController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="b06-Qj-Blc">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box title="Measurement System" translatesAutoresizingMaskIntoConstraints="NO" id="9Sa-6K-yjl">
+                                <rect key="frame" x="5" y="16" width="240" height="164"/>
+                                <view key="contentView" id="czS-xQ-Mts">
+                                    <rect key="frame" x="3" y="3" width="234" height="146"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X7h-OU-MgE">
+                                            <rect key="frame" x="7" y="84" width="221" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Metric (Kg, cm)" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="GIg-Br-Hmr">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="changeMeasurementSystem:" target="2mq-QZ-mwr" id="6QU-wd-e5R"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="etW-20-YjZ">
+                                            <rect key="frame" x="7" y="44" width="221" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Imperial (Pounds, Feet-Inches)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="gwQ-WZ-lM8">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="changeMeasurementSystem:" target="2mq-QZ-mwr" id="eYo-xl-1bZ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="etW-20-YjZ" firstAttribute="top" secondItem="X7h-OU-MgE" secondAttribute="bottom" constant="24" id="37S-Uy-sdL"/>
+                                        <constraint firstItem="etW-20-YjZ" firstAttribute="leading" secondItem="czS-xQ-Mts" secondAttribute="leading" constant="8" id="4Xa-bl-wee"/>
+                                        <constraint firstAttribute="trailing" secondItem="X7h-OU-MgE" secondAttribute="trailing" constant="8" id="ns0-3h-yQj"/>
+                                        <constraint firstAttribute="bottom" secondItem="etW-20-YjZ" secondAttribute="bottom" constant="45" id="nsX-or-YWb"/>
+                                        <constraint firstItem="X7h-OU-MgE" firstAttribute="leading" secondItem="czS-xQ-Mts" secondAttribute="leading" constant="8" id="sZN-De-UEl"/>
+                                        <constraint firstAttribute="trailing" secondItem="etW-20-YjZ" secondAttribute="trailing" constant="8" id="v1o-NI-stN"/>
+                                        <constraint firstItem="X7h-OU-MgE" firstAttribute="top" secondItem="czS-xQ-Mts" secondAttribute="top" constant="45" id="yYV-70-b2O"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="pbp-fG-a6s"/>
+                                </constraints>
+                            </box>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="9Sa-6K-yjl" firstAttribute="top" secondItem="b06-Qj-Blc" secondAttribute="top" constant="20" id="3kz-69-fos"/>
+                            <constraint firstItem="9Sa-6K-yjl" firstAttribute="leading" secondItem="b06-Qj-Blc" secondAttribute="leading" constant="8" id="udB-3u-bP7"/>
+                            <constraint firstAttribute="trailing" secondItem="9Sa-6K-yjl" secondAttribute="trailing" constant="8" id="vzY-n9-Ibh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imperialRadio" destination="etW-20-YjZ" id="DSv-TN-cmi"/>
+                        <outlet property="metricRadio" destination="X7h-OU-MgE" id="7dm-t4-Qy3"/>
+                    </connections>
+                </viewController>
+                <customObject id="XBT-Rb-fbZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="371"/>
+        </scene>
+    </scenes>
+</document>
